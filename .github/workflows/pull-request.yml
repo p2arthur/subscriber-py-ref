@@ -1,0 +1,16 @@
+name: Pull Request
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run-shared-pr-workflow:
+    name: Run Shared Python PR Workflow
+    uses: algorandfoundation/algokit-shared-config/.github/workflows/python-on-pull-request.yml@ci/release-workflow
+    with:
+      python-version: "3.12"
+      run-tests: true
+    secrets: inherit

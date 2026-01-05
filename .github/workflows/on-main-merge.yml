@@ -1,0 +1,32 @@
+name: On Merge to Main
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  generate-bot-token:
+    name: Generate Bot Token
+    runs-on: ubuntu-latest
+    outputs:
+      bot_token: ${{ steps.app_token.outputs.token }}
+    steps:
+      - name: Create GitHub App token
+        id: app_token
+        uses: algorandfoundation/algokit-shared-config/.github/actions/generate-bot-token@ci/release-workflow
+        with:
+          app_id: ${{ secrets.BOT_APP_ID }}
+          private_key: ${{ secrets.BOT_APP_PRIVATE_KEY }}
+
+  run-shared-pipeline:
+    name: Run Shared Python Pipeline
+    needs: generate-bot-token
+    uses: algorandfoundation/algokit-shared-config/.github/workflows/python-on-merge-main.yml@ci/release-workflow
+    with:
+      python-version: "3.12"
+      run-tests: true
+    secrets:
+      BOT_TOKEN: ${{ needs.generate-bot-token.outputs.bot_token }}
+      PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
