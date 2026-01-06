@@ -1,0 +1,5 @@
+.secrets
+/artifacts
+/node_modules
+/docs/_html/
+/coverage/
