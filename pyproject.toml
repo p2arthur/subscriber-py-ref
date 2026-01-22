@@ -12,6 +12,17 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.12"
 
+[dependency-groups]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-cov>=6.0.0",
+    "python-semantic-release>=9.8.2",
+]
+docs = [
+    "sphinx>=8.1.0",
+    "myst-parser>=4.0.0",
+]
+
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.0"
 pytest-cov = "^6.0.0"
