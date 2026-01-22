@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "algokit-subscriber-python-reference"
-version = "0.1.0"
+version = "1.0.0-beta.1"
 description = "Reference Python subscriber library orchestrated via algokit-shared-config."
 authors = ["Algorand Foundation"]
 readme = "README.md"
