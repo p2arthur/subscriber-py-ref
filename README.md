@@ -1,3 +1,21 @@
+# Python Workflow Reference Package
+
+A minimal Python package used to exercise shared CI, documentation, and release workflows.
+
+The package is a workflow fixture, rather than a functional Algorand transaction subscriber. Read pyproject.toml, the source module, and the calling workflows for the project-specific contract.
+
+## Start reading
+
+- [`src/`](src/)
+- [`tests/`](tests/)
+
+## Existing project notes
+
+The original guide below preserves project-specific context, credits, examples, and historical setup details. Referenced providers, branches, and deployments may have changed since it was written.
+
+<details>
+<summary>Read the original project documentation</summary>
+
 # algokit-subscriber-python-reference
 
 Minimal Python library whose CI/CD, docs, and release flows are delegated to the reusable workflows in `p2arthur/algokit-shared-config-forked`. Only the project-specific contract (package layout, versioning rules, and tokens) lives here; the heavy lifting is centralized so every repo stays consistent.
@@ -22,3 +40,5 @@ Minimal Python library whose CI/CD, docs, and release flows are delegated to the
 
 ## Local scripts
 Use `poetry install`, `poetry run pytest`, and `poetry run docs`. These entrypoints mirror what the shared workflows call so local and CI behavior stay aligned.
+
+</details>
